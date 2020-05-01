@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import CommentDetail from './CommentDetail';
+import ApproveCard from './ApprovalCard';
+import Faker from 'faker';
 
+const App=()=>{
+    return (
+    <div className="ui container comments">
+        <ApproveCard>
+            <CommentDetail author="Sam" timeAgo="Today at 06:00AM" comment="Nice blog post!" image={Faker.image.avatar()}/>
+        </ApproveCard>
+        <ApproveCard>
+            <CommentDetail author="Mike" timeAgo="8 Nov 2019" comment="Hooray" image={Faker.image.avatar()} />
+        </ApproveCard>
+        <ApproveCard>
+            <CommentDetail author="Dave" timeAgo="7 Dec 2018" comment="Good to see" image={Faker.image.avatar()}/>
+        </ApproveCard>
+        <ApproveCard>Do you want to enter??</ApproveCard>
+    </div>);
+};
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App/>,
+    document.querySelector('#root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
